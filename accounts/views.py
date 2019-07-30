@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def logout(request):
@@ -64,3 +65,11 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
+    
+    
+@login_required
+def profile(request):
+    """
+    A view that displays the profile page of a logged in user
+    """
+    return render(request, 'profile.html')

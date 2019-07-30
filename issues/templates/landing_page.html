@@ -15,7 +15,7 @@
 {% extends 'base.html'%}
 {% load staticfiles %}
 {% block content %} 
-   <p>Landing Page</p>
+   <!-- Used in Testing <p>Landing Page</p> -->
    {% if user.is_authenticated %}
     <div><p>Welcome {{ user.username }} to the Issue Fixer App</p></div>
     {% else %}

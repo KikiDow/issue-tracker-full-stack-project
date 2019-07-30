@@ -60,7 +60,7 @@
                         </a>
                 </li>
                 {% else %}
-                <li role="presentation" class=""><a href="#">Register</a></li>
+                <li role="presentation" class=""><a href="{% url 'register' %}">Register</a></li>
                 <li role="presentation" class=""><a href="{% url 'login' %}">Log In</a></li>
                 {% endif %}
 

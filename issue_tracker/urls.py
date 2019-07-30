@@ -17,9 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.static import serve
 from issues import urls as issues_urls
+from accounts import urls as accounts_urls
 from issues.views import landing_page
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', landing_page, name='index')
+    url(r'^$', landing_page, name='index'),
+    url(r'^accounts/', include(accounts_urls)),
 ]

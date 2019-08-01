@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+<h1>Create/Update Issue</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ create_issue_form | as_bootstrap }}
+        <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">Save Issue</button>
+        </span>
+    </form>
+{% endblock %}

@@ -1,58 +1,71 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="panel panel-primary profile">
     <!-- Default panel contents -->
     <div class="panel-heading"><strong>Issue Information</strong></div>
-        <!-- Table -->
-        <table class="table table-striped">
-          <tr>
-              <td><strong>Issue Name: </strong></td><td>{{ issue.issue_name }}</td>
-          </tr>
-          <tr class="info">
-              <td><strong>Description: </strong></td><td>{{ issue.issue_description }}</td>
-          </tr>
-          <tr>
-              <td><img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="width:100%;height:400px;"></td>
-          </tr>
-          <tr class="info">
-              <td><strong>Contributor: </strong></td><td>{{ issue.contributor }}</td>
-          </tr>
-          <tr>
-              <td><strong>Date Entered: </strong></td><td>{{ issue.date_issue_created }}</td>
-          </tr>
-          <tr class="info">
-              <td><strong>Type: </strong></td><td>{{ issue.issue_type }}</td>
-          </tr>
-          <tr>
-              <td><strong>Upvotes: </strong></td><td>{{ issue.issue_upvotes }}</td>
-          </tr>
-          <tr class="info">
-              <td><strong>Tag(s): </strong></td><td>{{ issue.tag }}</td>
-          </tr>
-          <tr>
-              <td><strong>Status: </strong></td><td>{{ issue.status }}</td>
-          </tr>
-          <tr class="info">
-              <td><strong>Last Update: </strong></td><td>{{ issue.date_issue_updated }}</td>
-          </tr>
-          <tr>
-              <td><strong>Issue Solved: </strong></td><td>{{ issue.is_issue_solved }}</td>
-          </tr>
-          <tr class="info">
-              <td><strong>Solved Date: </strong></td><td>{{ issue.date_issue_solved }}</td>
-          </tr>
-        </table>
-        <div class="well well-sm">
+    <!-- Table -->
+    <table class="table table-striped">
+        <tr>
+            <td><strong>Issue Name: </strong></td>
+            <td>{{ issue.issue_name }}</td>
+        </tr>
+        <tr class="info">
+            <td><strong>Description: </strong></td>
+            <td>{{ issue.issue_description }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="width:100%;height:400px;"></td>
+        </tr>
+        <tr class="info">
+            <td><strong>Contributor: </strong></td>
+            <td>{{ issue.contributor }}</td>
+        </tr>
+        <tr>
+            <td><strong>Date Entered: </strong></td>
+            <td>{{ issue.date_issue_created }}</td>
+        </tr>
+        <tr class="info">
+            <td><strong>Type: </strong></td>
+            <td>{{ issue.issue_type }}</td>
+        </tr>
+        <tr>
+            <td><strong>Upvotes: </strong></td>
+            <td>{{ issue.issue_upvotes }}</td>
+        </tr>
+        <tr class="info">
+            <td><strong>Tag(s): </strong></td>
+            <td>{{ issue.tag }}</td>
+        </tr>
+        <tr>
+            <td><strong>Status: </strong></td>
+            <td>{{ issue.status }}</td>
+        </tr>
+        <tr class="info">
+            <td><strong>Last Update: </strong></td>
+            <td>{{ issue.date_issue_updated }}</td>
+        </tr>
+        <tr>
+            <td><strong>Issue Solved: </strong></td>
+            <td>{{ issue.is_issue_solved }}</td>
+        </tr>
+        <tr class="info">
+            <td><strong>Solved Date: </strong></td>
+            <td>{{ issue.date_issue_solved }}</td>
+        </tr>
+    </table>
+    <div class="well well-sm">
         {% if user != issue.contributor and issue.issue_type == "BUG" %}
-            <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a>
-        {% endif %}
-        {% if user == issue.contributor or user.is_staff %}
-            <a class="btn btn-success" href="#" role="button">Edit</a>
-        {% endif %}
-        {% if user.is_staff %}
-            <a class="btn btn-success" href="#" role="button">Delete</a>
-        {% endif %}
+        <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a> {% endif %} {% if user == issue.contributor or user.is_staff %}
+        <a class="btn btn-success" href="#" role="button">Edit</a> {% endif %} {% if user.is_staff %}
+        <a class="btn btn-success" href="#" role="button">Delete</a> {% endif %}
+    </div>
+    {% if issue.issue_type == "FEATURE" %}
+    <div class="panel panel-primary">
+        <div class="panel-heading"><strong>Purchase Feature Upvote</strong></div>
+        <div class="panel-body">
+            <p>Purchase an upvote for the new feature you would like to see developed here.</p>
+            <p><strong>Price for Upvote:  €</strong>{{ issue.price }}</p>
         </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

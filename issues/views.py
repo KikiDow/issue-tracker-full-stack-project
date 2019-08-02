@@ -75,4 +75,14 @@ def edit_issue(request, pk):
 
     return render(request, "edit_issue.html", {'issue': issue, 'edit_issue_form': edit_issue_form})    
     
-    
+
+@login_required()
+def upvote_issue(request, pk):
+    """
+    This view allows the user to upvote an issue of their choice.
+    """
+    issue = Issue.objects.get(pk=pk)
+    issue.issue_upvotes += 1
+    issue.save()
+    messages.success(request, 'You have successfully upvoted this issue !!')
+    return redirect('view_issue', pk)

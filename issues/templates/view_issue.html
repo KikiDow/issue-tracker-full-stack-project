@@ -54,7 +54,7 @@
     </table>
     <div class="well well-sm">
         {% if user != issue.contributor and issue.issue_type == "BUG" %}
-        <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a> 
+        <a class="btn btn-success" href="{% url 'upvote_issue' issue.id %}" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a> 
         {% endif %} 
         {% if user == issue.contributor or user.is_staff %}
         <a class="btn btn-success" href="{% url 'edit_issue' issue.id %}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 

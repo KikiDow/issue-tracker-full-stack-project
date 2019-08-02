@@ -43,9 +43,16 @@
               <td><strong>Solved Date: </strong></td><td>{{ issue.date_issue_solved }}</td>
           </tr>
         </table>
+        <div class="well well-sm">
+        {% if user != issue.contributor and issue.issue_type == "BUG" %}
+            <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a>
+        {% endif %}
         {% if user == issue.contributor or user.is_staff %}
             <a class="btn btn-success" href="#" role="button">Edit</a>
-            <a class="btn btn-success" href="Delete" role="button">Delete</a>
         {% endif %}
+        {% if user.is_staff %}
+            <a class="btn btn-success" href="#" role="button">Delete</a>
+        {% endif %}
+        </div>
 </div>
 {% endblock %}

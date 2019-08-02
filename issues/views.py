@@ -46,3 +46,33 @@ def view_issue(request, pk):
     issue.save()
 
     return render(request, "view_issue.html", {'issue': issue})
+    
+
+@login_required()
+def edit_issue(request, pk):
+    """
+    This view allows the contributor or staff member to edit a single issue.
+    """
+    issue = get_object_or_404(Issue, pk=pk) if pk else None
+    user = request.user
+    
+    if request.method == "POST":
+        edit_issue_form = IssueForm(request.POST, request.FILES, instance=issue)
+        if edit_issue_form.is_valid():
+
+            edit_issue_form.instance.contributor = request.user
+            if edit_issue_form.instance.issue_type == 'FEATURE':
+                edit_issue_form.instance.price = 75
+            else:
+                edit_issue_form.instance.price = 0
+            issue = edit_issue_form.save()
+            messages.success(request, 'You have successfully made changes to this issue.')
+
+            return redirect(view_issue, issue.pk)
+    else:
+        edit_issue_form = IssueForm(instance=issue)
+        
+
+    return render(request, "edit_issue.html", {'issue': issue, 'edit_issue_form': edit_issue_form})    
+    
+    

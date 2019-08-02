@@ -54,9 +54,14 @@
     </table>
     <div class="well well-sm">
         {% if user != issue.contributor and issue.issue_type == "BUG" %}
-        <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a> {% endif %} {% if user == issue.contributor or user.is_staff %}
-        <a class="btn btn-success" href="#" role="button">Edit</a> {% endif %} {% if user.is_staff %}
-        <a class="btn btn-success" href="#" role="button">Delete</a> {% endif %}
+        <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  <strong>LIKE </strong></a> 
+        {% endif %} 
+        {% if user == issue.contributor or user.is_staff %}
+        <a class="btn btn-success" href="{% url 'edit_issue' issue.id %}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 
+        {% endif %} 
+        {% if user.is_staff %}
+        <a class="btn btn-success" href="#" role="button">Delete</a> 
+        {% endif %}
     </div>
     {% if issue.issue_type == "FEATURE" %}
     <div class="panel panel-primary">

@@ -23,7 +23,7 @@
         <h4>{{ issue.issue_name }}</h4>
         <p>{{ issue.issue_description }}</p>
         <p><strong>Upvotes: </strong>{{ issue.issue_upvotes }}</p>
-        <a class="btn btn-success" href="#" role="button">View</a>
+        <a class="btn btn-success" href="{% url 'view_issue' issue.id %}" role="button">View</a>
     </div>
     {% endfor %}
 {% else %}

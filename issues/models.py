@@ -17,7 +17,7 @@ class Issue(models.Model):
     date_issue_solved = models.DateTimeField(blank=True, null=True)
     issue_upvotes = models.IntegerField(default=0)
     tag = models.CharField(max_length=30, blank=True, null=True)
-    issue_image = models.ImageField(upload_to='issue_images', blank=True, null=True)
+    issue_image = models.ImageField(upload_to='media', blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     
     class Issue_Types(ChoiceEnum):

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="panel panel-primary profile">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><strong>Issue Information</strong></div>
+        <!-- Table -->
+        <table class="table table-striped">
+          <tr>
+              <td><strong>Issue Name: </strong></td><td>{{ issue.issue_name }}</td>
+          </tr>
+          <tr class="info">
+              <td><strong>Description: </strong></td><td>{{ issue.issue_description }}</td>
+          </tr>
+          <tr>
+              <td><img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="width:100%;height:400px;"></td>
+          </tr>
+          <tr class="info">
+              <td><strong>Contributor: </strong></td><td>{{ issue.contributor }}</td>
+          </tr>
+          <tr>
+              <td><strong>Date Entered: </strong></td><td>{{ issue.date_issue_created }}</td>
+          </tr>
+          <tr class="info">
+              <td><strong>Type: </strong></td><td>{{ issue.issue_type }}</td>
+          </tr>
+          <tr>
+              <td><strong>Upvotes: </strong></td><td>{{ issue.issue_upvotes }}</td>
+          </tr>
+          <tr class="info">
+              <td><strong>Tag(s): </strong></td><td>{{ issue.tag }}</td>
+          </tr>
+          <tr>
+              <td><strong>Status: </strong></td><td>{{ issue.status }}</td>
+          </tr>
+          <tr class="info">
+              <td><strong>Last Update: </strong></td><td>{{ issue.date_issue_updated }}</td>
+          </tr>
+          <tr>
+              <td><strong>Issue Solved: </strong></td><td>{{ issue.is_issue_solved }}</td>
+          </tr>
+          <tr class="info">
+              <td><strong>Solved Date: </strong></td><td>{{ issue.date_issue_solved }}</td>
+          </tr>
+        </table>
+        {% if user == issue.contributor or user.is_staff %}
+            <a class="btn btn-success" href="#" role="button">Edit</a>
+            <a class="btn btn-success" href="Delete" role="button">Delete</a>
+        {% endif %}
+</div>
+{% endblock %}

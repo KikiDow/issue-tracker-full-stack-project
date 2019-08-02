@@ -86,3 +86,13 @@ def upvote_issue(request, pk):
     issue.save()
     messages.success(request, 'You have successfully upvoted this issue !!')
     return redirect('view_issue', pk)
+    
+@login_required()
+def delete_issue(request, pk):
+    """
+    This view allows a staff member to delete a issue
+    """
+    issue_for_deletion = Issue.objects.get(pk=pk)
+    issue_for_deletion.delete()
+    messages.success(request, "You have successfully deleted this issue.")
+    return redirect('index')

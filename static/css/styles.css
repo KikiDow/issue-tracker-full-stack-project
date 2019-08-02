@@ -2,3 +2,7 @@ body {
     font-family: Arial;
     padding-top: 60px;
 }
+
+.profile {
+    width: 50%;
+}

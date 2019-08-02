@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
 <div class="panel panel-primary profile">
     <!-- Default panel contents -->
     <div class="panel-heading"><strong>Issue Information</strong></div>
@@ -13,7 +15,11 @@
             <td>{{ issue.issue_description }}</td>
         </tr>
         <tr>
+            {% if issue.image %}
             <td colspan="2"><img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="width:100%;height:400px;"></td>
+            {% else %}
+            <td colspan="2"><img class="" src="{% static 'images/No-image-available.jpg' %}" alt="Issue Image" style="width:100%;height:400px;"></td>
+            {% endif %}
         </tr>
         <tr class="info">
             <td><strong>Contributor: </strong></td>

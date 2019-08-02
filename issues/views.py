@@ -9,7 +9,9 @@ def landing_page(request):
     """
     Create a view that will render the landing page to the user.
     """
-    return render(request, "landing_page.html")
+    all_issues = Issue.objects.all().order_by('-date_issue_created')
+    
+    return render(request, "landing_page.html", {'issues': all_issues})
     
     
 @login_required()

@@ -44,8 +44,10 @@ def view_issue(request, pk):
     """
     issue = get_object_or_404(Issue, pk=pk)
     issue.save()
+    comments = Comment.objects.filter(issue=pk)
+    len_of_comments = len(comments)
 
-    return render(request, "view_issue.html", {'issue': issue})
+    return render(request, "view_issue.html", {'issue': issue, 'comments': comments, 'len_of_comments': len_of_comments})
     
 
 @login_required()

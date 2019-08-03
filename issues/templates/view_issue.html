@@ -70,6 +70,7 @@
         {% endif %}
     </div>
     {% if issue.issue_type == "FEATURE" %}
+    <hr>
     <div class="panel panel-primary">
         <div class="panel-heading"><strong>Purchase Feature Upvote</strong></div>
         <div class="panel-body">
@@ -78,5 +79,42 @@
         </div>
     </div>
     {% endif %}
+    <br>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><strong>Comments Section</strong></div>
+        <div class="panel-body">
+            {% if len_of_comments == 0 %}
+            <p>This issue has not been commented on yet.</p>
+            {% else %}
+                {% for comment in comments %}
+                <div class="well well-sm">
+                    <table class="table table-striped">
+                        <tr>
+                            <td><strong>Comment: </strong></td><td><p>{{ comment.comment }}</p></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contributor: </strong></td><td><p>{{ comment.contributor }}</p></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date Entered: </strong></td><td><p>{{ comment.date_comment_created }}</p></td>
+                        </tr>
+                        {% if comment.date_comment_updated %}
+                        <tr>
+                            <td><strong>Date Updated: </strong></td><td><p>{{ comment.date_comment_updated }}</p></td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                    {% if user == issue.contributor or user.is_staff %}
+                    <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 
+                    {% endif %} 
+                    {% if user.is_staff %}
+                    <a class="btn btn-success" href="#" role="button">Delete</a> 
+                    {% endif %} 
+                </div>
+                {% endfor %}
+            {% endif %}
+        <a class="btn btn-success" href="#" role="button">Comment</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

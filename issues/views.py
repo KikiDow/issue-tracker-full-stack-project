@@ -116,3 +116,23 @@ def create_comment(request, pk):
     else:
         comment_form = CommentForm()
     return render(request, 'comment_form.html', {'comment_form': comment_form})
+    
+@login_required()
+def edit_comment(request, pk):
+    """
+    This view allows the user that submitted the original comment or staff member to edit a comment.
+    """
+    comment = get_object_or_404(Comment, pk=pk)
+    comment_issue = comment.issue
+    issue_pk = comment_issue.id
+    if request.method == "POST":
+        comment_edit_form = CommentForm(request.POST, request.FILES, instance=comment)
+        if comment_edit_form.is_valid():
+            comment_edit_form.instance.contributor = request.user
+            comment_edit_form.instance.issue = comment_issue
+            comment_edit_form.save()
+            messages.success(request, 'You have successfully made changes to the comment.')
+            return redirect(view_issue, issue_pk)
+    else:
+        comment_edit_form = CommentForm(instance=comment)
+    return render(request, 'comment_edit_form.html', {'comment_edit_form': comment_edit_form})

@@ -104,8 +104,8 @@
                         </tr>
                         {% endif %}
                     </table>
-                    {% if user == issue.contributor or user.is_staff %}
-                    <a class="btn btn-success" href="#" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 
+                    {% if user == comment.contributor or user.is_staff %}
+                    <a class="btn btn-success" href="{% url 'edit_comment' comment.id %}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 
                     {% endif %} 
                     {% if user.is_staff %}
                     <a class="btn btn-success" href="#" role="button">Delete</a> 

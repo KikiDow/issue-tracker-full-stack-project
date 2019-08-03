@@ -98,3 +98,21 @@ def delete_issue(request, pk):
     issue_for_deletion.delete()
     messages.success(request, "You have successfully deleted this issue.")
     return redirect('index')
+    
+@login_required()
+def create_comment(request, pk):
+    """
+    This view allows a user to comment on an issue.
+    """
+    issue = get_object_or_404(Issue, pk=pk)
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST, request.FILES)
+        if comment_form.is_valid():
+            comment_form.instance.contributor = request.user
+            comment_form.instance.issue = issue
+            comment_form.save()
+            messages.success(request, 'You have successfully commented on this issue.')
+            return redirect(view_issue, pk)
+    else:
+        comment_form = CommentForm()
+    return render(request, 'comment_form.html', {'comment_form': comment_form})

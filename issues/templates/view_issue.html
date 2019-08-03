@@ -113,7 +113,7 @@
                 </div>
                 {% endfor %}
             {% endif %}
-        <a class="btn btn-success" href="#" role="button">Comment</a>
+        <a class="btn btn-success" href="{% url 'create_comment' issue.id %}" role="button">Comment</a>
         </div>
     </div>
 </div>

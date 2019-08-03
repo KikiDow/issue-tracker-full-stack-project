@@ -120,7 +120,7 @@ def create_comment(request, pk):
 @login_required()
 def edit_comment(request, pk):
     """
-    This view allows the user that submitted the original comment or staff member to edit a comment.
+    This view allows the user that submitted the original comment or a staff member to edit a comment.
     """
     comment = get_object_or_404(Comment, pk=pk)
     comment_issue = comment.issue
@@ -136,3 +136,15 @@ def edit_comment(request, pk):
     else:
         comment_edit_form = CommentForm(instance=comment)
     return render(request, 'comment_edit_form.html', {'comment_edit_form': comment_edit_form})
+    
+@login_required()
+def delete_comment(request, pk):
+    """
+    This view allows the user who submitted the original comment or a staff member to delete a comment. 
+    """
+    comment_for_deletion = Comment.objects.get(pk=pk)
+    comment_for_deletion_issue = comment_for_deletion.issue
+    issue_pk = comment_for_deletion_issue.id
+    comment_for_deletion.delete()
+    messages.success(request, "You have successfully deleted this comment.")
+    return redirect('view_issue', issue_pk)

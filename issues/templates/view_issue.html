@@ -70,7 +70,7 @@
         {% endif %}
     </div>
     {% if issue.issue_type == "FEATURE" %}
-    <hr>
+    <br>
     <div class="panel panel-primary">
         <div class="panel-heading"><strong>Purchase Feature Upvote</strong></div>
         <div class="panel-body">
@@ -106,9 +106,7 @@
                     </table>
                     {% if user == comment.contributor or user.is_staff %}
                     <a class="btn btn-success" href="{% url 'edit_comment' comment.id %}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  Edit</a> 
-                    {% endif %} 
-                    {% if user.is_staff %}
-                    <a class="btn btn-success" href="#" role="button">Delete</a> 
+                    <a class="btn btn-success" href="{% url 'delete_comment' comment.id %}" role="button">Delete</a> 
                     {% endif %} 
                 </div>
                 {% endfor %}

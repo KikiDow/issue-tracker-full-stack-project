@@ -13,6 +13,11 @@ def landing_page(request):
     
     return render(request, "landing_page.html", {'issues': all_issues})
     
+def about_page(request):
+    """
+    This view will render the about page to the user.
+    """
+    return render(request, "about_page.html")
     
 @login_required()
 def create_issue(request):

@@ -55,9 +55,12 @@
                 <li role="presentation" class=""><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li>
                 <li role="presentation" class=""><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>  Log Out</a></li>
                 <li class="">
-                    <a href="#">
-                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span>  Cart</span>
-                        </a>
+                    <a href="{% url 'view_cart' %}">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span>  Cart</span>
+                        {% if issue_upvote_count > 0 %}
+                            <label class="badge badge-primary">{{ issue_upvote_count }}</label>
+                        {% endif %}
+                    </a>
                 </li>
                 {% else %}
                 <li role="presentation" class=""><a href="{% url 'register' %}">Register</a></li>

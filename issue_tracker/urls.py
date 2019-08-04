@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.views.static import serve
 from issues import urls as issues_urls
 from accounts import urls as accounts_urls
+from cart import urls as cart_urls
 from issues.views import landing_page
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -27,5 +28,6 @@ urlpatterns = [
     url(r'^$', landing_page, name='index'),
     url(r'^accounts/', include(accounts_urls)),
     url(r'^issues/', include(issues_urls)),
+    url(r'^cart/', include(cart_urls)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

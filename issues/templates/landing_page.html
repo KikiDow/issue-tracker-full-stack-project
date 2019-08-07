@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+<!-- Used in Testing
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,8 @@
 <!-- Used in Testing <p>Landing Page</p> -->
 {% if user.is_authenticated %}
 <div>
-    <p>Welcome <strong>{{ user.username }}</strong> to the Bug & Issue Tracker, here are the latest contributions !!</p>
+    <p>Welcome <strong>{{ user.username }}</strong> to the Bug & Issue Tracker.</p>
+    <h2>Latest Contributions </h2>
 </div>
     {% for issue in issues %}
     <div class="well well-sm">

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-<h1>Create Issue</h1>
+<h2>Create Issue</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ create_issue_form | as_bootstrap }}

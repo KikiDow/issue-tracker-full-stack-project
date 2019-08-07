@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content %}
+<form action="" method="get">
+        {{ filter.form | as_bootstrap }}
+        <button class="btn btn-success"  type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>  Search</button>
+</form>
+    {% for issue in filter.qs %}
+        {{ issue.issue_name }} - {{ issue.is_issue_solved }} - {{ issue.contributor }}<br />
+    {% endfor %}
+{% endblock %}

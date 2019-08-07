@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Issue, Comment
 from .forms import IssueForm, CommentForm
 
@@ -11,7 +12,21 @@ def landing_page(request):
     """
     all_issues = Issue.objects.all().order_by('-date_issue_created')
     
-    return render(request, "landing_page.html", {'issues': all_issues})
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_issues, 2)
+    
+    try:
+        issues = paginator.page(page)
+        
+    except PageNotAnInteger:
+        
+        issues = paginator.page(1)
+        
+    except EmptyPage:
+        
+        issues = paginator.page(paginator.num_pages)
+    
+    return render(request, "landing_page.html", {'issues': issues})
     
 def about_page(request):
     """

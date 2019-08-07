@@ -7,5 +7,9 @@ from .filters import IssueFilter
 # Create your views here.
 @login_required()
 def search(request):
+    """
+    This view will take the user to the search page. It will also pass a filter
+    object to the search page.
+    """
     f = IssueFilter(request.GET, queryset=Issue.objects.all())
-    return render(request, 'search.html', {'filter': f})
+    return render(request, "search.html", {'filter': f})

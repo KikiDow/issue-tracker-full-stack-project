@@ -30,7 +30,7 @@ class Issue(models.Model):
         DONE = 'Done'
 
     issue_type = models.CharField(max_length=9, choices=Issue_Types.choices(), default='BUG')
-    status = models.CharField(max_length=7, choices=Statuses.choices(), default='TODO')
+    status = models.CharField(max_length=12, choices=Statuses.choices(), default='TODO')
     
 
 

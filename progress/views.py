@@ -30,11 +30,7 @@ def get_issue_type_json(request):
     This view will generate the json data required and outline 
     the type of chart to be used to display the data.
     """
-    dataset = Issue.objects \
-        .values('issue_type') \
-        .exclude(issue_type='') \
-        .annotate(total=Count('issue_type')) \
-        .order_by('issue_type')
+    dataset = Issue.objects.values('issue_type').exclude(issue_type='').annotate(total=Count('issue_type')).order_by('issue_type')
 
     chart = {
         'chart': {'type': 'column'},
@@ -45,8 +41,8 @@ def get_issue_type_json(request):
             'data': list(map(lambda row: {'name': [row['issue_type']], 'y': row['total']}, dataset))
         }]
     }
-
     return JsonResponse(chart)
+
 
 def get_issue_status_json(request):
     """

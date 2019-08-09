@@ -2,12 +2,12 @@
 <div class="panel panel-primary">
     <div class="panel-heading"><strong>Progress Panel</strong></div>
     <div class="row">
-        <div id="completed_weekly_container" class="col s12 m6"></div>
-        <div id="completed_monthly_container" class="col s12 m6"></div>
+        <div id="completed_weekly_container" class="col-sm-12 col-md-6"></div>
+        <div id="completed_monthly_container" class="col-sm-12 col-md-6"></div>
     </div>
     <div class="row">
-        <div id="bug_upvotes_container" class="col s12 m6" data-url="{% url 'get_bug_upvotes_json' %}"></div>
-        <div id="feature_upvotes_container" class="col s12 m6" data-url="{% url 'get_feature_upvotes_json' %}"></div>
+        <div id="bug_upvotes_container" class="col-sm-12 col-md-6" data-url="{% url 'get_bug_upvotes_json' %}"></div>
+        <div id="feature_upvotes_container" class="col-sm-12 col-md-6" data-url="{% url 'get_feature_upvotes_json' %}"></div>
     </div>
 
     <div id="issue_type_container" data-url="{% url 'get_issue_type_json' %}"></div>
@@ -45,32 +45,6 @@ $.ajax({
 $(document).ready(function() {
     var chart = new Highcharts.Chart({
         chart: {
-            renderTo: 'completed_daily_container',
-            type: 'pie',
-            backgroundColor: 'transparent',
-        },
-        plotOptions: {
-            pie: {
-                innerSize: '70%'
-            }
-        },
-        title: {
-            text: 'Issues Resolved Today:',
-            style: { 'color': 'black' }
-        },
-        subtitle: {
-            text: '{{completed_daily}}',
-            align: 'center',
-            verticalAlign: 'middle',
-            style: { "fontSize": "10em", 'color': 'black' },
-            y: 15
-        },
-        credits: { enabled: false },
-    });
-});
-$(document).ready(function() {
-    var chart = new Highcharts.Chart({
-        chart: {
             renderTo: 'completed_weekly_container',
             type: 'pie',
             backgroundColor: 'transparent',
@@ -81,7 +55,7 @@ $(document).ready(function() {
             }
         },
         title: {
-            text: 'Issues Resolved in the past 7 days:',
+            text: 'Issues Resolved in the past week:',
             style: { 'color': 'black' }
         },
         subtitle: {
@@ -107,7 +81,7 @@ $(document).ready(function() {
             }
         },
         title: {
-            text: 'Issues Resolved in the past 28 days:',
+            text: 'Issues Resolved in the past month:',
             style: { 'color': 'black' }
         },
         subtitle: {

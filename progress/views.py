@@ -17,9 +17,9 @@ def progress_panel(request):
     end_of_today = datetime.combine(tomorrow, time())
     
     start_of_week = datetime.combine(today - timedelta(7), time())
-    print(start_of_week)
+    #print(start_of_week)
     issues_solved_this_week = Issue.objects.filter(date_issue_solved__gte=timezone.make_aware(start_of_week)).filter(date_issue_solved__lt=timezone.make_aware(end_of_today)).count()
-    print(timezone.make_aware(start_of_week))
+    #print(timezone.make_aware(start_of_week))
     start_of_month = datetime.combine(today - timedelta(28), time())
     issues_solved_this_month = Issue.objects.filter(date_issue_solved__gte=timezone.make_aware(start_of_month)).filter(date_issue_solved__lt=timezone.make_aware(end_of_today)).count()
     

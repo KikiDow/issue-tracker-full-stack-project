@@ -171,3 +171,18 @@ def delete_comment(request, pk):
     comment_for_deletion.delete()
     messages.success(request, "You have successfully deleted this comment.")
     return redirect('view_issue', issue_pk)
+
+
+@login_required()
+def my_contributions(request):
+    """
+    This view will render the My Contributions page.
+    """
+    user = request.user
+    my_issues = Issue.objects.filter(contributor=user)
+    my_comments = Comment.objects.filter(contributor=user)
+    
+    return render(request, "my_contributions.html", {'my_issues': my_issues, 'my_comments': my_comments})
+    
+    
+    

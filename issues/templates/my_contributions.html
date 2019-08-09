@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for issue in my_issues %}
+        <h4>Issues: </h4>
+        <p>{{ issue.issue_name }}</p>
+    {% endfor %}
+    {% for comment in my_comments %}
+        <h4>Comments: </h4>
+        <p>{{ comment.comment }}</p>
+    {% endfor %}
+{% endblock %}

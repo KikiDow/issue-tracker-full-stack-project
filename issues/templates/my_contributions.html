@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load staticfiles %}
+{% block content %}
 <div class="panel panel-primary">
     <!-- Default panel contents -->
     <div class="panel-heading"><strong>My Contributions</strong></div>
@@ -15,7 +17,11 @@
                 {% for issue in my_issues %}
                     <div class="col-sm-12 col-md-4">
                         <div class="thumbnail">
-                            <img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="height:242px;width:200px;">
+                            {% if issue.issue_image %}
+                                <img class="" src="{{ MEDIA_URL }}{{ issue.issue_image }}" alt="Issue Image" style="height:242px;width:200px;">
+                            {% else %}
+                                <img class="" src="{% static 'images/No-image-available.jpg' %}" alt="Issue Image" style="height:242px;width:200px;">                
+                            {% endif %}
                             <div class="caption">
                                 <h4>{{ issue.issue_name }}</h4>
                                 <p><strong>Type: </strong>{{ issue.issue_type }}</p>
@@ -32,7 +38,11 @@
                 {% for comment in my_comments %}
                     <div class="col-sm-12 col-md-4">
                         <div class="thumbnail">
-                            <img class="" src="{{ MEDIA_URL }}{{ comment.issue.issue_image }}" alt="Issue Image" style="height:242px;width:200px;">
+                            {% if comment.issue.issue_image %}
+                                <img class="" src="{{ MEDIA_URL }}{{ comment.issue.issue_image }}" alt="Issue Image" style="height:242px;width:200px;">
+                            {% else %}
+                                <img class="" src="{% static 'images/No-image-available.jpg' %}" alt="Issue Image" style="height:242px;width:200px;">                
+                            {% endif %}
                             <div class="caption">
                                 <h4>{{ comment.issue }}</h4>
                                 <p><strong>Date Created: </strong>{{ comment.date_comment_created }}</p>

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.collapse').collapse()
+    //$('.collapse').collapse()
     $('.carousel').carousel()
     $('#editModal').modal()
   });

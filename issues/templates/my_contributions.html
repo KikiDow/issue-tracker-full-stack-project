@@ -46,7 +46,7 @@
                             <div class="caption">
                                 <h4>{{ comment.issue }}</h4>
                                 <p><strong>Date Created: </strong>{{ comment.date_comment_created }}</p>
-                                <p><a href="{% url 'view_issue' comment.issue.id %}" class="btn btn-success" role="button">View</a></p>
+                                <p><a href="{% url 'view_issue' comment.issue.id %}#CommentSection" class="btn btn-success" role="button">View</a></p>
                             </div>
                         </div>
                     </div>

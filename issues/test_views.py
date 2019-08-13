@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .models import Issue, Comment
 from django.contrib.auth.models import User
-from .urls import about_page
+from django.shortcuts import get_object_or_404
 
 #Tests for views
 class LoggedInTestCase(TestCase):
@@ -93,5 +93,6 @@ class TestViews(LoggedInTestCase):
         page = self.client.get("/issues/my_contributions/")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "my_contributions.html")
+        
         
         

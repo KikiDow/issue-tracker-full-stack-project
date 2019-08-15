@@ -2,7 +2,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading"><strong>Progress Panel</strong></div>
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top:10px;">
             <div id="completed_weekly_container" class="col-sm-12 col-md-6"></div>
             <div id="completed_monthly_container" class="col-sm-12 col-md-6"></div>
         </div>
@@ -12,7 +12,7 @@
         </div>
 
         <div id="issue_type_container" data-url="{% url 'get_issue_type_json' %}"></div>
-        <div id="status_container" data-url="{% url 'get_issue_status_json' %}"></div>
+        <div id="status_container" data-url="{% url 'get_issue_status_json' %}" style="margin-bottom:50px;"></div>
     </div>
 </div>
 <script>

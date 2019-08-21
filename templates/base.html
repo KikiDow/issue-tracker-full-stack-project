@@ -78,19 +78,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{% static 'js/custom-script.js' %}"></script>
     <!-- Footer -->
-    <footer class="container-fluid">
-        <div class="row">
+    <footer class="container-fluid" style="padding-bottom:5px;">
+        <div class="row" style="bottom:0px;">
             <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <a href="{% url 'index' %}"><i class="fa fa-bug"></i> Bug & Issue Fixer</a>
-            </div>
-            <div class="col-sm-4">
-                <ul class="list-inline social-links">
+            <div class="col-sm-4" style="bottom:0;">
+                <ul class="list-inline social-links" style="padding-top:5px;padding-bottom:0px;bottom:0;">
+                    <li><a target="_blank" href="#"><i class="fa fa-github"></i></a></li>
                     <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <!-- <li style="font-size:20px;"><a href="{% url 'index' %}"> HOME </a></li> -->
                     <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
+            <div class="col-sm-4"></div>
         </div>
     </footer>
     <!--

@@ -27,7 +27,7 @@
         <a class="btn btn-success" href="{% url 'view_issue' issue.id %}" role="button">View</a>
     </div>
     {% endfor %}
-    <div style="margin-bottom:50px;">
+    <div class="active-margin">
     {% if issues.has_other_pages %}
         <nav aria-label="Latest Contributions">
             <ul class="pagination">

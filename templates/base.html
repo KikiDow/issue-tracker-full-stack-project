@@ -79,10 +79,10 @@
     <script src="{% static 'js/custom-script.js' %}"></script>
     <!-- Footer -->
     <footer class="container-fluid" style="padding-bottom:5px;">
-        <div class="row center-block" style="bottom:0px;">
-            <!-- <div class="col-sm-4"></div> -->
-            <div class="col-sm-12" style="bottom:0;">
-                <ul class="list-inline social-links" style="padding-top:5px;padding-bottom:0px;bottom:0;">
+        <div class="row" style="bottom:0px;">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" style="bottom:0;">
+                <ul class="list-inline social-links center-block" style="padding-top:5px;padding-bottom:0px;bottom:0;">
                     <li><a target="_blank" href="#"><i class="fa fa-github"></i></a></li>
                     <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="{% url 'index' %}" data-toggle="tooltip" data-placement="top" title="Home Page"><i class="fa fa-bug"></i></a></li>
@@ -90,7 +90,7 @@
                     <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
-            <!-- <div class="col-sm-4"></div> -->
+            <div class="col-sm-4"></div>
         </div>
     </footer>
     <!--

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-<h2>Create Issue</h2>
-    <div class="active-margin">
+<div class="panel panel-primary active-margin">
+<div class="panel-heading"><strong>Contribute an Issue</strong></div>
         <form method="POST" enctype="multipart/form-data" class="active-margin">
             {% csrf_token %}
             {{ create_issue_form | as_bootstrap }}
@@ -10,5 +10,5 @@
                 <button class="btn btn-success" type="submit">Save Issue</button>
             </span>
         </form>
-    </div>
+</div>
 {% endblock %}

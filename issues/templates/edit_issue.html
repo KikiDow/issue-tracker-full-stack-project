@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
-<h1>Edit Issue</h1>
-<div class="active-margin">
+<div class="panel panel-primary active-margin">
+<div class="panel-heading"><strong>Edit an Issue</strong></div>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ edit_issue_form | as_bootstrap }}
         <span class="input-group-btn">

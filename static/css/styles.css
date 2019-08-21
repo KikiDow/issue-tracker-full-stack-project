@@ -38,6 +38,10 @@ footer a:active {
     text-decoration: none;
 }
 
+form {
+    padding-left: 10px;
+    padding-right:10px;
+}
 
 .social-links {
     padding-top: 15px;

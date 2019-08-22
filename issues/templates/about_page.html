@@ -47,7 +47,7 @@
 </div>
 </div>
 
-<div class="well active-margin">
+<div class="well">
 <div class="media">
   <div class="media-left media-middle">
       <img class="media-object hidden-xs" src="{% static 'images/aboutImage4.jpg' %}" alt="About Image" style="height:150px;width:150px;">
@@ -68,4 +68,31 @@
   </div>
 </div>
 </div>
+<div class="well well-sm active-margin">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contactModal">
+  		Contact Us
+	</button>
+</div>
+<div class="modal fade" id="#contactModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+             <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/>
+             <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/>
+             <input type="text" name="phonenumber" class="form-control" id="phonenumber" placeholder="Phone No" required/>
+             <textarea rows="5" name="fan-query" class="form-control" id="user-query" placeholder="Your Question" required></textarea>
+         </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-secondary">Send Question</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 {% endblock %}

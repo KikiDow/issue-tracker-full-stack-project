@@ -25,7 +25,7 @@ Here is the manner in which the desired elements were outlined in the assignment
 [![Build Status](https://travis-ci.org/KikiDow/issue-tracker-full-stack-project.svg?branch=master)](https://travis-ci.org/KikiDow/issue-tracker-full-stack-project)
 
 ## DEMO
-* A live demo hosted on Heroku can be found here
+* A live demo hosted on Heroku can be found [here](https://full-stack-django-issuetracker.herokuapp.com/)
 
 ## UX
 The GitHub issue tracker was mentioned in the assignment outline, hence this developer's research for the UX began [here](https://guides.github.com/features/issues/), which then led onto 
@@ -138,7 +138,8 @@ following command into their own IDE once they have cloned the repository; ```py
 22. The "Deploy Branch" option was selected again to re-build the app. 
 23. App now fully deployed and ready for use on Heroku using S3 Bucket. Re-populated on new database. 
 
-* GitHub reposity for the project is located here
+* GitHub reposity for the project is located [here](https://github.com/KikiDow/issue-tracker-full-stack-project)
+* The application is deployed to Heroku [here](https://full-stack-django-issuetracker.herokuapp.com/)
 
 ## Credits
 

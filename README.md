@@ -99,11 +99,46 @@ Google Chrome "Inspect" tab.
 * Automated tests were developed and conducted using the in-built Django tests package. They can be found in the test_forms.py, test_views.py and test_models.py
 file of the issues app. 20 tests were developed and conducted on the issues and progress apps. 
 The results of these tests can be seen in the IMAGEFILE.jpg file located in the testing folder. Alternatively, one can run these tests by entering the 
-following command into their own IDE once they have cloned the repository; **python3 manage.py test**.
+following command into their own IDE once they have cloned the repository; ```python3 manage.py test```.
 
 ## Deployment
+* This project is deployed to Heroku in conjunction with Amazon Web Servcies S3 to host the static and media file as Heroku only has ephemeral memory.
+* The application was deployed as follows;
+1. A new app was created on Heroku with a unique name.
+2. The POSTGRES database add-on was then provisioned.
+3. The following packages were then installed using the ```sudo pip3 install``` command. These packages were installed to allow, Cloud9, Heroku, PostGres and AWS S3 
+	interface effectively.
+		- ```dj_databse_url```
+		- ```gunicorn````
+		- ````psycopg2````
+		- ````boto3````
+		- ````django-storages````
+4. These packages were then passed to the requirements.txt file using the command: ```sudo pip3 freeze > requirments.txt```
+5. The dj_database_url package was then imported in the settings.py file using the command: ```import dj_database_url``
+6. In the settings.py file, wire the application to the new "production" database using the following command '''DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}'''
+	while commenting out the test database details.
+7. Retrieve the database_url from the config vars in the settings panel of your new app in Heroku.
+8. The "DATABASE_URL" environment variable in the env.py file was set using the following command: ````os.environ.setdefault("DATABASE_URL", "pretend-heroku-database-url-key")````
+9. The following two commands were then run to migrate all existing migration to the new postgres database.
+10. The details for a new superuser/administrator for the database was then set using the command: ````python3 manage.py createsuperuser```` 
+11. On a PAID AWS account, a new S3 bucket was set up, giving it an appropriate unique name, groups, policy and users, setting the property for static website hosting,
+	CORS Configuration and Bucket policy. Once created, the calibration csv file was downloaded containing the access keys for the newly created bucket.
+12. Add the command 'storages' to the list of ALLOWED_APPS in settings.py
+13. The lines ````141-168```` were then added to settings.py to wire the application up to the newly created S3 Bucket, the two AWS access keys being set in the env.py file.
+14. The file custom-storages.py was then created and two classes were declared to create a static and media folders in the S3 Bucket.
+15. The command: python3 manage.py collectstatic was then used to transfer all static files to the S3 Bucket. 
+16. All environment variables (e.g. STRIPE API key, AWS keys, etc) were then set in the config vars on Heroku.
+17. The Heroku app was then connected to the matching GitHub repository.
+18. The Procfile was then created in my IDE (Cloud9). This is used to inform Heroku what type of app it is about to recieve. Pushing to the 
+	GitHub repo.
+19. On Heroku, the config vars: ````DISABLE_COLLECTSTATIC```` was set to ````1````. The "1" represented false and is used to prevent Heroku from retrieving all static files
+	from the GitHub repo.
+20. The "Deploy Branch" option was then selected on Heroku to build the app and retrieve the Heroku address(url) of the app.
+21. The address(url) of the newly created app was then added to the list of ````ALLOWED_HOSTS```` in the settings.py file. Change comited and pushed to GitHub.
+22. The "Deploy Branch" option was selected again to re-build the app. 
+23. App now fully deployed and ready for use on Heroku using S3 Bucket. Re-populated on new database. 
+
 * GitHub reposity for the project is located here
-* Description of how to deploy project to Heroku placed here 
 
 ## Credits
 
@@ -123,7 +158,8 @@ The lorem ipsum text used was created [here](https://www.lipsum.com/)
 - The file "aboutImage4.jpg" was retrieved from [here](https://www.shutterstock.com/image-photo/program-code-computer-keyboard-124888153)
 - The file "contribute.jpg" was retrieved from [here](https://www.codegent.com/blog/2010/4/healthy_competition)
 - The file "realBug.jpg" was retrieved from [here](https://www.rt.com/news/flame-virus-cyber-war-536/)
-The following images were used for **sample uploads** from test users:
+
+#### The following images were used for **sample uploads** from test users:
 - The file "report.png" was retrieved from [here](https://marketplace.geotab.com/solutions/dvir-defects-alert-report)
 - The file "bug1.png" was retrieved from [here](https://www.egrovesys.com/blog/what-is-bug-why-do-bugs-occur/)
 - The file "bug3.jpg" was retrieved from [here](https://betanews.com/2017/02/02/bug-fixing-software-development/)

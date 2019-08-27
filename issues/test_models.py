@@ -49,7 +49,7 @@ class TestModels(TestCase):
 
 ''' Reference:
 Author: Daly, J. (2019).
-Title: "issue-tracker".
+Title: "issue-tracker"
 Version: Unknown.
 Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
 Retrieved from: https://github.com/jordandaly/issue_tracker

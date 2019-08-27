@@ -20,3 +20,14 @@ def cart_contents(request):
         cart_items.append({'id': id, 'quantity': quantity, 'issue': issue})
     
     return {'cart_items': cart_items, 'total': total, 'issue_upvote_count': issue_upvote_count}
+    
+    
+'''
+<!-- Reference: 
+Author: CodeInstitute (2019).
+Title: "Putting It All Togther: Ecommerce".
+Version: Unknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/06-travis_continuous_integration
+-->
+'''

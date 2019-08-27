@@ -25,3 +25,14 @@ class OrderLineItem(models.Model):
     def __str__(self):
         return "{0} {1} @ {2}".format(
             self.quantity, self.issue.issue_name, self.issue.price)
+            
+            
+'''
+<!-- Reference: 
+Author: CodeInstitute (2019).
+Title: "Putting It All Togther: Ecommerce".
+Version: Uknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/06-travis_continuous_integration
+-->
+'''

@@ -45,6 +45,16 @@ class TestModels(TestCase):
         comment = Comment(comment="Test Comment String", contributor=user, issue=issue)
         self.assertEqual("Test Comment String", str(comment))
         
+
+
+''' Reference:
+Author: Daly, J. (2019).
+Title: "issue-tracker".
+Version: Unknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/jordandaly/issue_tracker
+'''
+        
         
         
         

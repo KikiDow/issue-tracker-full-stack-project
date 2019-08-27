@@ -10,3 +10,12 @@ urlpatterns = [
         {'post_reset_redirect': reverse_lazy('password_reset_complete')}, name='password_reset_confirm'),
     url(r'^complete/$', password_reset_complete, name='password_reset_complete'),
 ]
+
+
+''' Reference: 
+Author: CodeInstitute (2019).
+Title: "Putting It All Togther: Ecommerce".
+Version: Uknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/06-travis_continuous_integration
+'''

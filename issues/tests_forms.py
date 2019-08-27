@@ -29,3 +29,11 @@ class TestForms(TestCase):
         form = CommentForm({'comment': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['comment'], [u'This field is required.'])
+        
+''' Reference:
+Author: Daly, J. (2019).
+Title: "issue-tracker".
+Version: Unknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/jordandaly/issue_tracker
+'''

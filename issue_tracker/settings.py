@@ -168,3 +168,11 @@ STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+''' Reference: 
+Author: CodeInstitute (2019).
+Title: "Putting It All Togther: Ecommerce".
+Version: Uknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/06-travis_continuous_integration
+'''

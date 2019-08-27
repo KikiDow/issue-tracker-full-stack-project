@@ -8,3 +8,14 @@ class StaticStorage(S3Boto3Storage):
 
 class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
+
+
+'''
+<!-- Reference: 
+Author: CodeInstitute (2019).
+Title: "Putting It All Togther: Ecommerce".
+Version: Uknown.
+Type: HTML, CSS, Python, Jinja, sqlite3, postgres.
+Retrieved from: https://github.com/Code-Institute-Solutions/PuttingItAllTogether-Ecommerce/tree/master/03-HostingYourEcommerceWebApp/06-travis_continuous_integration
+-->
+'''
